@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Sneha 🎂</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.card {
+  background: white;
+  padding: 35px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+  animation: pop 1s ease;
+  max-width: 360px;
+}
+
+h1 {
+  color: #ff4d6d;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  min-height: 34px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 26px;
+  background: #333;
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,50% { opacity: 1; }
+  51%,100% { opacity: 0; }
+}
+
+p {
+  font-size: 15.5px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.heart {
+  font-size: 42px;
+  animation: beat 1s infinite;
+  margin: 12px 0;
+}
+
+.eye {
+  font-size: 28px;
+}
+
+.from {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #777;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 4s;
+}
+
+.from-name {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #555;
+  font-weight: 600;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 5.2s;
+}
+
+button {
+  margin-top: 15px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 20px;
+  background: #ff4d6d;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+@keyframes beat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  animation: fall 4s linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Hidden YouTube Player -->
+<iframe id="musicFrame"
+  width="0"
+  height="0"
+  src=""
+  allow="autoplay">
+</iframe>
+
+<div class="card">
+  <h1>Happy Birthday 🎂</h1>
+
+  <!-- Typing name -->
+  <div class="name">
+    <span id="typed-name"></span><span class="cursor"></span>
+  </div>
+
+  <div class="heart">💖</div>
+
+  <p>
+    Ye page sirf ek birthday wish nahi hai…<br><br>
+    Sneha, tumhari aankhen thodi dangerous hain 😌  
+    ek nazar mein smile chura leti hain.<br><br>
+    Aaj ka din bas tumhara hai —  
+    hope tumhe thoda sa extra special feel ho 💫
+  </p>
+
+  <div class="eye">👀✨</div>
+
+  <div class="from">
+    — from someone who definitely got distracted by your eyes 👀
+  </div>
+
+  <div class="from-name">
+    Ayush Chauhan
+  </div>
+
+  <!-- Play music button -->
+  <button onclick="playMusic()">Tap to play music 🎧</button>
+</div>
+
+<script>
+// Typing animation
+const nameText = "Sneha ✨";
+let index = 0;
+
+function typeName() {
+  if (index < nameText.length) {
+    document.getElementById("typed-name").innerHTML += nameText.charAt(index);
+    index++;
+    setTimeout(typeName, 150);
+  }
+}
+typeName();
+
+// Play YouTube music
+function playMusic() {
+  document.getElementById("musicFrame").src =
+    "https://www.youtube.com/embed/DK_UsATwoxI?autoplay=1";
+}
+
+// Confetti
+for (let i = 0; i < 35; i++) {
+  const c = document.createElement("div");
+  c.className = "confetti";
+  c.style.left = Math.random() * 100 + "vw";
+  c.style.background =
+    ["#ff4d6d","#ffd166","#06d6a0","#4d96ff"][Math.floor(Math.random()*4)];
+  c.style.animationDuration = (Math.random()*3 + 2) + "s";
+  document.body.appendChild(c);
+}
+</script>
+
+</body>
+</html>
